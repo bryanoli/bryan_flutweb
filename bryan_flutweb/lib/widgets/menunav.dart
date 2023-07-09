@@ -7,17 +7,17 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            child: const Text(
-              'Menu',
-              style: TextStyle(color: Colors.white, fontSize: 25),
-            ),
+          const DrawerHeader(
             decoration: BoxDecoration(
                 color: Colors.black,
                 // image: DecorationImage(
                 //     fit: BoxFit.fill,
                 //     image: AssetImage('assets/images/cover.jpg'))
                 ),
+            child: Text(
+              'Menu',
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.input),
