@@ -23,26 +23,6 @@ class NavDrawer extends StatelessWidget {
           _buildMult(Icons.verified_user, 'Projects', context),
           // _buildMult(Icons.settings, 'Settings', context),
           // _buildMult(Icons.border_color, 'Feedback', context),
-          // ListTile(
-          //   leading: Icon(Icons.input),
-          //   title: Text('Home'),
-          //   onTap: () => {},
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.verified_user),
-          //   title: Text('Projects'),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.settings),
-          //   title: Text('Settings'),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.border_color),
-          //   title: Text('Feedback'),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
         ],
       ),
     );
@@ -56,5 +36,3 @@ ListTile _buildMult(IconData icon, String title, BuildContext context){
     onTap: () => {Navigator.of(context).pop()},
   );
 }
-
-//reference

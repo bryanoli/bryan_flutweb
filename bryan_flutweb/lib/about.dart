@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
-
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -20,16 +20,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     
-   Widget textIntro = const Padding(
-      padding: EdgeInsets.all(32),
-      child: Text('Hello everyone! ' 
-      '\nMy name is Bryan Olivares',
-      style: TextStyle(
+   Widget textIntro = SizedBox(
+      width: 250,
+      child: DefaultTextStyle(
+        style: const TextStyle(
           fontSize: 38,
           fontWeight: FontWeight.bold,
-        ), 
-      softWrap: true,
-      textAlign: TextAlign.center,
+          color: Colors.white,
+        ),
+        
+      
+      child: AnimatedTextKit(
+        // repeatForever: false,
+        animatedTexts: [
+        TypewriterAnimatedText('Hello everyone!'),
+        TypewriterAnimatedText('\n My name is Bryan Olivares'),
+        ],
+        isRepeatingAnimation: false,
+        
+        ),
       ),
     );
 
@@ -81,3 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
