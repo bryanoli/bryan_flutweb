@@ -20,27 +20,53 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     
-   Widget textIntro = SizedBox(
-      width: 250,
+  //  Widget textIntro = SizedBox(
+  //     width: 250,
+  //     child: DefaultTextStyle(
+  //       style: const TextStyle(
+  //         fontSize: 38,
+  //         fontWeight: FontWeight.bold,
+  //         color: Colors.white,
+  //       ),
+  //     textAlign: TextAlign.justify,
+        
+      
+  //     child: AnimatedTextKit(
+  //       animatedTexts: [
+  //       TypewriterAnimatedText('Hello everyone!'),
+  //       TypewriterAnimatedText('\n My name is Bryan Olivares'),
+  //       ],
+  //       isRepeatingAnimation: false,
+        
+  //       ),
+  //       ),
+  //   );
+
+  Widget textIntro = Align(
+  alignment: Alignment.topCenter,
+  child: Center(
+    child: SizedBox.square(
+      
       child: DefaultTextStyle(
         style: const TextStyle(
           fontSize: 38,
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
-        
-      
-      child: AnimatedTextKit(
-        // repeatForever: false,
-        animatedTexts: [
-        TypewriterAnimatedText('Hello everyone!'),
-        TypewriterAnimatedText('\n My name is Bryan Olivares'),
-        ],
-        isRepeatingAnimation: false,
-        
+        // textAlign: TextAlign.justify,
+        child: AnimatedTextKit(
+          animatedTexts: [
+            TypewriterAnimatedText('Hello everyone!'),
+            TypewriterAnimatedText('\nMy name is Bryan Olivares'),
+          ],
+          isRepeatingAnimation: false,
         ),
       ),
-    );
+    ),
+  ),
+);
+
+
 
     Widget textAbout = const SizedBox.square(
       
