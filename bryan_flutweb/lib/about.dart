@@ -20,27 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     
-  //  Widget textIntro = SizedBox(
-  //     width: 250,
-  //     child: DefaultTextStyle(
-  //       style: const TextStyle(
-  //         fontSize: 38,
-  //         fontWeight: FontWeight.bold,
-  //         color: Colors.white,
-  //       ),
-  //     textAlign: TextAlign.justify,
-        
-      
-  //     child: AnimatedTextKit(
-  //       animatedTexts: [
-  //       TypewriterAnimatedText('Hello everyone!'),
-  //       TypewriterAnimatedText('\n My name is Bryan Olivares'),
-  //       ],
-  //       isRepeatingAnimation: false,
-        
-  //       ),
-  //       ),
-  //   );
 
   Widget textIntro = Align(
   alignment: Alignment.topCenter,
@@ -73,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Padding(
         padding: EdgeInsets.all(32),
         child: Text('Computer Engineer with a focus on software development.'
-        ' I started my engineering journey in Chabot College by learning all lower'
+        ' I started my engineering journey at Chabot College by learning all lower'
         ' division math, computer science, and physics classes.' 
         ' Then, continued in University of California Santa Barbara completing classes'
         ' that involve with working on software development with hardware, machine learning,' 
@@ -104,11 +83,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
         children: [
           textIntro,
-          Image.asset('assets/images/profile.jpg',
-          width:500,
-          height: 500,
-          fit: BoxFit.contain,
-            ),
+          
+            Image.asset(
+              'assets/images/profile.jpg',
+            width:500,
+            height: 500,
+            fit: BoxFit.contain,
+              ),
+
+          
             textAbout
           ],
         ),

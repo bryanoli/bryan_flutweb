@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/about.dart';
+import 'package:bryan_flutweb/projects.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'About'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(title: 'About'),
+      '/projects': (context) => const ProjectPage(title: 'Projects'),
+      },
+      
     );
   }
 }

@@ -19,8 +19,8 @@ class NavDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
-          _buildMult(Icons.input, 'Home', context),
-          _buildMult(Icons.verified_user, 'Projects', context),
+          _buildMult(Icons.input, 'Home', '/', context),
+          _buildMult(Icons.verified_user, 'Projects', '/projects', context),
           // _buildMult(Icons.settings, 'Settings', context),
           // _buildMult(Icons.border_color, 'Feedback', context),
         ],
@@ -29,10 +29,11 @@ class NavDrawer extends StatelessWidget {
   }
 }
 
-ListTile _buildMult(IconData icon, String title, BuildContext context){
+ListTile _buildMult(IconData icon, String title, String routeName, BuildContext context){
   return ListTile(
     leading: Icon(icon),
     title:Text(title),
-    onTap: () => {Navigator.of(context).pop()},
+    onTap: () => {Navigator.pushNamed(context, routeName),
+    },
   );
 }
