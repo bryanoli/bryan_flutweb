@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -34,14 +34,12 @@ class _ProjectPageState extends State<ProjectPage> {
         child: Column(
           children: [
             SizedBox(
-              height: 500,
+              height: 300,
               width: 500,
             child: InkWell(
                 child:Image.asset(
                     'assets/images/logo.jpg',
-                    width:500,
-                    height: 500,
-                    fit: BoxFit.contain,
+                    fit: BoxFit.fill,
               ),
                
               onTap: (){
