@@ -10,9 +10,9 @@ class NavDrawer extends StatelessWidget {
           const DrawerHeader(
             decoration: BoxDecoration(
                 color: Colors.black,
-                // image: DecorationImage(
-                //     fit: BoxFit.fill,
-                //     image: AssetImage('assets/images/cover.jpg'))
+                image: DecorationImage(
+                    fit: BoxFit.scaleDown,
+                    image: AssetImage('assets/images/profile.jpg'))
                 ),
             child: Text(
               'Menu',
