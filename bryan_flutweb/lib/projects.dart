@@ -34,7 +34,7 @@ class _ProjectPageState extends State<ProjectPage> {
       body: Center(
         child: Row(
           children: [
-            _projectTemplate('assets/images/logo.jpg', datadriven),
+            _projectTemplate('assets/images/datadriven.jpg', datadriven),
             _projectTemplate('assets/images/gauchoride.png', gauchoride)
             // Other widgets go here
           ],
