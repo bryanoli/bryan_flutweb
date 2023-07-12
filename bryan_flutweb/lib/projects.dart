@@ -17,7 +17,8 @@ class ProjectPage extends StatefulWidget {
 
 class _ProjectPageState extends State<ProjectPage> {
 
-  final Uri uri = Uri.parse('https://about.datadrivenucsb.com/');
+  final Uri datadriven = Uri.parse('https://about.datadrivenucsb.com/');
+  final Uri gauchoride = Uri.parse('https://github.com/ucsb-cs156-s23/proj-gauchoride-s23-5pm-3');
 
   @override
   Widget build(BuildContext context) {
@@ -31,23 +32,10 @@ class _ProjectPageState extends State<ProjectPage> {
       ),
       drawer: NavDrawer(),
       body: Center(
-        child: Column(
+        child: Row(
           children: [
-            SizedBox(
-              height: 300,
-              width: 500,
-            child: InkWell(
-                child:Image.asset(
-                    'assets/images/logo.jpg',
-                    fit: BoxFit.fill,
-              ),
-               
-              onTap: (){
-                launchUrl(uri);
-              },
-              
-            ),
-            ),
+            _projectTemplate('assets/images/logo.jpg', datadriven),
+            _projectTemplate('assets/images/gauchoride.png', gauchoride)
             // Other widgets go here
           ],
         ),
@@ -55,3 +43,24 @@ class _ProjectPageState extends State<ProjectPage> {
     );
   }
 }
+
+
+//Template of creating containers containing the projects
+SizedBox _projectTemplate(String image, Uri uri) {
+  return SizedBox(
+    height: 300,
+    width: 500,
+    child: InkWell(
+      child:Image.asset(
+        image,
+        fit: BoxFit.fill,
+        ),       
+        onTap: (){
+        launchUrl(uri);
+       },
+              
+    ),
+  );
+}
+
+
