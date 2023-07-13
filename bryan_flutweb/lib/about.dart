@@ -72,31 +72,67 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
     return Scaffold(
-      appBar: AppBar(
-        
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        
-        title: Text(widget.title),
-      ),
-      drawer: NavDrawer(),
-      body: Center(
-        child: ListView(
-        children: [
-          textIntro,
-          
-            Image.asset(
-              'assets/images/profile.jpg',
-            width:500,
-            height: 500,
-            fit: BoxFit.contain,
+  appBar: AppBar(
+    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    title: Text(widget.title),
+  ),
+  drawer: NavDrawer(),
+  body: Center(
+    child: ListView(
+      children: [
+        Container(
+          height: 700,
+          width: 500,
+          // alignment: Alignment.center,
+          decoration: BoxDecoration(
+            image: const DecorationImage(
+              image: AssetImage('assets/images/skylinesf.jpg'),
+              fit: BoxFit.fill,
+            ),
+            border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 2),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.9),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
-
+            ],
+          ),
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            height: 400,
+            width: 400,
+            margin: EdgeInsets.all(1),
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+             boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.9),
+                blurRadius: 0.1,
+                offset: const Offset(0, 1),
+              ),
+            ],
+            image: const DecorationImage(
+              image: AssetImage('assets/images/profile.jpg'),
+                fit: BoxFit.contain ,
+              
+                ),
+            //    border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 2),
+            // borderRadius: BorderRadius.circular(10),
+           
+             ),
+          ),
           
-            textAbout
-          ],
-        ),
-      ),
-    );
+          
+            
+          ),
+        textIntro,
+        textAbout,
+      ],
+    ),
+  ),
+);
   }
 }
 

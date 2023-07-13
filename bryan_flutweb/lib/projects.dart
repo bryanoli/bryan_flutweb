@@ -19,13 +19,45 @@ class _ProjectPageState extends State<ProjectPage> {
 
   final Uri datadriven = Uri.parse('https://about.datadrivenucsb.com/');
   final Uri gauchoride = Uri.parse('https://github.com/ucsb-cs156-s23/proj-gauchoride-s23-5pm-3');
-  final String drivenSum =  "Summary";
-  final String rideSum =  "Summary";
+  
 
 
   @override
   Widget build(BuildContext context) {
     
+    Widget drivenSummary = const SizedBox.square(
+      
+        child: Padding(
+        padding: EdgeInsets.all(32),
+        child: Text('Achieved second place in a competitive capstone project, working collaboratively with a team to'
+        ' design, develop, and present innovative solutions. For more infomation click on the icon on the left.',
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ), 
+        softWrap: true,
+        // textAlign: TextAlign.justify,
+        ),
+      )
+
+    ); 
+
+    Widget gauchoSummary = const SizedBox.square(
+      
+        child: Padding(
+        padding: EdgeInsets.all(32),
+        child: Text('Contribute to GauchoRide, an application to assist students facing difficulties attending classes.'
+        ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the icon on the left.',
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ), 
+        softWrap: true,
+        // textAlign: TextAlign.justify,
+        ),
+      )
+
+    ); 
     
 
     return Scaffold(
@@ -36,8 +68,9 @@ class _ProjectPageState extends State<ProjectPage> {
       drawer: NavDrawer(),
       body: ListView(
         children: [
-            _projectTemplate('assets/images/datadriven.jpg', datadriven, "Data Driven", drivenSum),
-            _projectTemplate('assets/images/gauchoride.png', gauchoride, "GauchoRide", rideSum),
+            _projectTemplate('assets/images/datadriven.jpg', datadriven, "Data Driven", drivenSummary),
+            _projectTemplate('assets/images/gauchoride.png', gauchoride, "GauchoRide", gauchoSummary),
+            
             // Other widgets go here
           ],
         ),
@@ -48,7 +81,7 @@ class _ProjectPageState extends State<ProjectPage> {
 
 
 //Template of creating containers containing the projects
-Row _projectTemplate(String image, Uri uri , String title, String summary) {
+Row _projectTemplate(String image, Uri uri , String title, Widget summary) {
 
   return Row(
   mainAxisSize: MainAxisSize.min,
@@ -75,37 +108,23 @@ Row _projectTemplate(String image, Uri uri , String title, String summary) {
     Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(title),
-        Text(summary),
+        Text(title, style: const TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+      ),
+       Container(
+      constraints: const BoxConstraints(
+        maxHeight: 300,
+        maxWidth: 500, // Adjust the width value as per your desired maximum width
+      ),
+      child: summary,
+    ),
       ],
     ),
    
   ],
 );
   
-  // return Row(
-  //   mainAxisSize: MainAxisSize.min,
-  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //   children: [
-  //     SizedBox(
-  //     height: 300,
-  //     width: 500,
-  //     child: InkWell(
-  //       child:Image.asset(
-  //       image,
-  //       fit: BoxFit.fill,
-  //       ),       
-  //       onTap: (){
-  //       launchUrl(uri);
-  //      },
-              
-  //      ),
-  //     )
-      
-  //   ],
-    
-    
-  // );
  }
 
 
