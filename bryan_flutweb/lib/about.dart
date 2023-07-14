@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:simple_icons/simple_icons.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -32,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
-        // textAlign: TextAlign.justify,
+        
         child: AnimatedTextKit(
           animatedTexts: [
             TypewriterAnimatedText('Hello everyone!'),
@@ -80,11 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
   body: Center(
     child: ListView(
       children: [
-        Container(
-          height: 700,
-          width: 500,
-          // alignment: Alignment.center,
-          decoration: BoxDecoration(
+        Stack(
+          children: [
+            Positioned(
+              child: Container(
+                height: MediaQuery.of(context).size.height*.7,
+                width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
             image: const DecorationImage(
               image: AssetImage('assets/images/skylinesf.jpg'),
               fit: BoxFit.fill,
@@ -100,32 +104,37 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           padding: const EdgeInsets.all(10),
-          child: Container(
-            height: 400,
-            width: 400,
-            margin: EdgeInsets.all(1),
-            padding: EdgeInsets.all(1),
-            decoration: BoxDecoration(
-             boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.9),
-                blurRadius: 0.1,
-                offset: const Offset(0, 1),
-              ),
-            ],
-            image: const DecorationImage(
-              image: AssetImage('assets/images/profile.jpg'),
-                fit: BoxFit.contain ,
-              
-                ),
-            //    border: Border.all(color: const Color.fromARGB(255, 0, 0, 0), width: 2),
-            // borderRadius: BorderRadius.circular(10),
-           
-             ),
           ),
           
           
-            
+            ),
+            Positioned(
+              top: 200,
+              right: MediaQuery.of(context).size.width / 2 - 200,
+              child: Container(
+                // color:  Color.fromARGB(255, 255, 255, 255),
+                height: 400,
+                width: 400,
+                decoration: BoxDecoration(
+              image: const DecorationImage(
+                image: AssetImage('assets/images/profile.jpg'),
+                fit: BoxFit.fill,
+              ),
+              border: Border.all(color: const Color.fromARGB(255, 253, 253, 253), width: 7),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.9),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(10),
+              ),
+            ),
+          ],
+          
           ),
         textIntro,
         textAbout,
