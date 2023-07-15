@@ -63,7 +63,6 @@ flutter:
   assets:
     - assets/images/profile.jpg
     - assets/images/datadriven.jpg
-    - assets/images/sfcity.jpg
     - assets/images/skylinesf.jpg
     - assets/images/gauchoride.png
 

@@ -42,9 +42,10 @@ class _ProjectPageState extends State<ProjectPage> {
 
     ); 
 
-    Widget gauchoSummary = const SizedBox.square(
-      
-        child: Padding(
+    Widget gauchoSummary = SizedBox(
+        height: MediaQuery.of(context).size.height/2,
+        width: MediaQuery.of(context).size.width/4,
+        child: const Padding(
         padding: EdgeInsets.all(32),
         child: Text('Contribute to GauchoRide, an application to assist students facing difficulties attending classes.'
         ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the icon on the left.',
@@ -104,7 +105,8 @@ Row _projectTemplate(String image, Uri uri , String title, Widget summary) {
       ),
     // ),
      const SizedBox(
-      width: 20,),
+      width: 20,
+      ),
     Column(
       mainAxisSize: MainAxisSize.min,
       children: [

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:simple_icons/simple_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -18,6 +19,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  final Uri github = Uri.parse('https://github.com/bryanoli?tab=repositories');
+  final Uri linkedin = Uri.parse('https://www.linkedin.com/in/bryanoli/');
 
   @override
   Widget build(BuildContext context) {
@@ -106,8 +109,20 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(10),
           ),
           
-          
             ),
+
+              
+
+            Positioned(
+              child: Container(
+                height:MediaQuery.of(context).size.height/4,
+                width: MediaQuery.of(context).size.width/2,
+                decoration:  const BoxDecoration(
+                    
+                ),
+
+                ),
+              ),
             Positioned(
               top: 200,
               right: MediaQuery.of(context).size.width / 2 - 200,
@@ -133,6 +148,41 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(10),
               ),
             ),
+          Positioned(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisSize: MainAxisSize.max,
+                // crossAxisAlignment: CrossAxisAlignment.,
+                
+                children: <Widget>[
+                 IconButton(
+                  icon: const Icon(
+                    SimpleIcons.github,
+                    color:Color.fromARGB(255, 255, 0, 0),
+                    size: 50
+                  ),
+                  onPressed: () {
+                      launchUrl(github);
+                 }
+                ),
+                const SizedBox(width: 20),
+                IconButton(
+                  icon: const Icon(
+                    SimpleIcons.linkedin,
+                    color:Color.fromARGB(255, 255, 0, 0),
+                    size: 50
+                  ),
+                  onPressed: () {
+                      launchUrl(linkedin);
+                 }
+                ),
+                
+                ],
+                
+                ),
+
+                ),
+
           ],
           
           ),
