@@ -65,6 +65,9 @@ flutter:
     - assets/images/datadriven.jpg
     - assets/images/skylinesf.jpg
     - assets/images/gauchoride.png
+    - assets/images/chabot_logo.jpg
+    - assets/images/karlstorzlogo.png
+    - assets/images/ucsblogo.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

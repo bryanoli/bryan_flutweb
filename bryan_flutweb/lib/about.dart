@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:bryan_flutweb/projects.dart';
 import 'package:simple_icons/simple_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,39 +21,35 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final Uri github = Uri.parse('https://github.com/bryanoli?tab=repositories');
   final Uri linkedin = Uri.parse('https://www.linkedin.com/in/bryanoli/');
+  final Uri ucsb = Uri.parse('https://www.ucsb.edu/');
+  final Uri chabot = Uri.parse('https://www.chabotcollege.edu/');
+  final Uri ksi = Uri.parse('https://www.karlstorz.com/');
 
   @override
   Widget build(BuildContext context) {
     
 
-  Widget textIntro = Align(
+  Widget textIntro = const Align(
   alignment: Alignment.topCenter,
   child: Center(
     child: SizedBox.square(
-      
-      child: DefaultTextStyle(
-        style: const TextStyle(
-          fontSize: 38,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-        
-        child: AnimatedTextKit(
-          animatedTexts: [
-            TypewriterAnimatedText('Hello everyone!'),
-            TypewriterAnimatedText('\nMy name is Bryan Olivares'),
-          ],
-          isRepeatingAnimation: false,
+      child: Padding(
+        padding: EdgeInsets.all(32),
+        child: 
+        Text("Bryan Olivares",
+        style: TextStyle(
+            fontSize: 38,
+            fontWeight: FontWeight.bold,
+          ), 
+           ),
         ),
       ),
-    ),
   ),
-);
+  );
 
 
 
-    Widget textAbout = const SizedBox.square(
-      
+    Widget textAbout = const SizedBox(
         child: Padding(
         padding: EdgeInsets.all(32),
         child: Text('Computer Engineer with a focus on software development.'
@@ -65,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ' that worked on over the years.',
         style: TextStyle(
             fontSize: 38,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.normal,
           ), 
         softWrap: true,
         textAlign: TextAlign.justify,
@@ -156,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 
                 children: <Widget>[
                  IconButton(
+                  hoverColor: Colors.amberAccent,
                   icon: const Icon(
                     SimpleIcons.github,
                     color:Color.fromARGB(255, 255, 0, 0),
@@ -167,6 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(width: 20),
                 IconButton(
+                  hoverColor: Colors.amberAccent,
                   icon: const Icon(
                     SimpleIcons.linkedin,
                     color:Color.fromARGB(255, 255, 0, 0),
@@ -186,6 +184,57 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           
           ),
+
+        SizedBox(
+          child: Row(
+            children: [
+              SizedBox(
+              height: 300,
+              width: 500,
+              child: InkWell(
+                hoverColor: Colors.amberAccent,
+                child: Image.asset(
+                  'assets/images/ucsblogo.jpg',
+                  fit: BoxFit.contain,
+                ),
+                onTap: () {
+                  launchUrl(ucsb);
+                },
+              ),
+           ),
+           const SizedBox(width:40),
+           SizedBox(
+              height: 300,
+              width: 500,
+              child: InkWell(
+                hoverColor: Colors.amberAccent,
+                child: Image.asset(
+                  'assets/images/chabot_logo.jpg',
+                  fit: BoxFit.contain,
+                ),
+                onTap: () {
+                  launchUrl(ucsb);
+                },
+              ),
+           ),
+            const SizedBox(width:40),
+           SizedBox(
+              height: 300,
+              width: 500,
+              child: InkWell(
+                hoverColor: Colors.amberAccent,
+                child: Image.asset(
+                  'assets/images/karlstorzlogo.png',
+                  fit: BoxFit.contain,
+                ),
+                onTap: () {
+                  launchUrl(ucsb);
+                },
+              ),
+           ),
+            ],
+          ),
+        ),
         textIntro,
         textAbout,
       ],
