@@ -1,4 +1,5 @@
 
+import 'package:bryan_flutweb/widgets/resume.dart';
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/about.dart';
 import 'package:bryan_flutweb/projects.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const MyHomePage(title: 'About'),
         '/projects': (context) => const ProjectPage(title: 'Projects'),
+        '/resume': (context) => const ResumePage(title: 'Resume'),
       },
       
     );

@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
-import 'package:bryan_flutweb/projects.dart';
 import 'package:simple_icons/simple_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -58,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ' Then, continued in University of California Santa Barbara completing classes'
         ' that involve with working on software development with hardware, machine learning,' 
         ' and as well full-stack web programming. I created this website to showcase the projects'
-        ' that worked on over the years.',
+        ' that worked on over the years. ',
         style: TextStyle(
             fontSize: 38,
             fontWeight: FontWeight.normal,
@@ -202,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
            ),
-           const SizedBox(width:40),
+           const SizedBox(width:200),
            SizedBox(
               height: 300,
               width: 500,
@@ -217,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
            ),
-            const SizedBox(width:40),
+            const SizedBox(width:200),
            SizedBox(
               height: 300,
               width: 500,
@@ -237,6 +236,25 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         textIntro,
         textAbout,
+        SizedBox(
+          height: MediaQuery.of(context).size.height/6,
+          width: MediaQuery.of(context).size.width,
+          child:FittedBox(
+            child:FloatingActionButton.extended(
+          
+          onPressed: (){
+            Navigator.pushNamed(context, '/resume');
+            
+          },
+          label: const Text('Resume',),
+          
+          backgroundColor: Colors.pink,
+          
+            ),
+          ),
+          
+        ),
+        
       ],
     ),
   ),
