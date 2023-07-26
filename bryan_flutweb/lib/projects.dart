@@ -25,9 +25,10 @@ class _ProjectPageState extends State<ProjectPage> {
   @override
   Widget build(BuildContext context) {
     
-    Widget drivenSummary = const SizedBox.square(
-      
-        child: Padding(
+    Widget drivenSummary = SizedBox(
+        height: MediaQuery.of(context).size.height/2,
+        width: MediaQuery.of(context).size.width/4,
+        child: const Padding(
         padding: EdgeInsets.all(32),
         child: Text('Achieved second place in a competitive capstone project, working collaboratively with a team to'
         ' design, develop, and present innovative solutions. For more infomation click on the icon on the left.',
@@ -69,8 +70,8 @@ class _ProjectPageState extends State<ProjectPage> {
       drawer: NavDrawer(),
       body: ListView(
         children: [
-            _projectTemplate('assets/images/datadriven.jpg', datadriven, "Data Driven", drivenSummary),
-            _projectTemplate('assets/images/gauchoride.png', gauchoride, "GauchoRide", gauchoSummary),
+            _projectTemplate('assets/images/datadriven.jpg', datadriven, "Data Driven", drivenSummary,context),
+            _projectTemplate('assets/images/gauchoride.png', gauchoride, "GauchoRide", gauchoSummary,context),
             
             // Other widgets go here
           ],
@@ -82,7 +83,7 @@ class _ProjectPageState extends State<ProjectPage> {
 
 
 //Template of creating containers containing the projects
-Row _projectTemplate(String image, Uri uri , String title, Widget summary) {
+Row _projectTemplate(String image, Uri uri , String title, Widget summary, BuildContext context) {
 
   return Row(
   mainAxisSize: MainAxisSize.min,
@@ -94,39 +95,64 @@ Row _projectTemplate(String image, Uri uri , String title, Widget summary) {
         height: 300,
         width: 500,
         child: InkWell(
+          onTap: () {
+            _showPopUp(context,title,summary,uri);
+          },
+          
           child: Image.asset(
             image,
             fit: BoxFit.contain,
           ),
-          onTap: () {
-            launchUrl(uri);
-          },
         ),
       ),
     // ),
      const SizedBox(
       width: 20,
       ),
-    Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(title, style: const TextStyle(
-        fontWeight: FontWeight.bold,
-      ),
-      ),
-       Container(
-      constraints: const BoxConstraints(
-        maxHeight: 300,
-        maxWidth: 500, // Adjust the width value as per your desired maximum width
-      ),
-      child: summary,
-    ),
-      ],
-    ),
+    // Column(
+    //   mainAxisSize: MainAxisSize.min,
+    //   children: [
+    //     Text(title, style: const TextStyle(
+    //     fontWeight: FontWeight.bold,
+    //   ),
+    //   ),
+    //    Container(
+    //   constraints: const BoxConstraints(
+    //     maxHeight: 300,
+    //     maxWidth: 500, // Adjust the width value as per your desired maximum width
+    //   ),
+    //   child: summary,
+    // ),
+    //   ],
+    // ),
    
   ],
 );
-  
- }
+
+}
 
 
+void _showPopUp(BuildContext context, String title, Widget summary, Uri uri) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: summary,
+          actions: <Widget>[
+           TextButton(onPressed:() { 
+            launchUrl(uri);
+            }, 
+           child: Text (title)
+           ),
+           TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the pop-up
+              },
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
