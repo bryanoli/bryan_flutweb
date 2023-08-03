@@ -56,8 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ' division math, computer science, and physics classes.' 
         ' Then, continued in University of California Santa Barbara completing classes'
         ' that involve with working on software development with hardware, machine learning,' 
-        ' and as well full-stack web programming. I created this website to showcase the projects'
-        ' that worked on over the years. ',
+        ' and as well full-stack web programming.',
         style: TextStyle(
             fontSize: 38,
             fontWeight: FontWeight.normal,

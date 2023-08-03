@@ -31,7 +31,7 @@ class _ProjectPageState extends State<ProjectPage> {
         child: const Padding(
         padding: EdgeInsets.all(32),
         child: Text('Achieved second place in a competitive capstone project, working collaboratively with a team to'
-        ' design, develop, and present innovative solutions. For more infomation click on the icon on the left.',
+        ' design, develop, and present innovative solutions. For more infomation click on the button on the bottom.',
         style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -49,7 +49,7 @@ class _ProjectPageState extends State<ProjectPage> {
         child: const Padding(
         padding: EdgeInsets.all(32),
         child: Text('Contribute to GauchoRide, an application to assist students facing difficulties attending classes.'
-        ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the icon on the left.',
+        ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the button on the bottom.',
         style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
