@@ -211,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   fit: BoxFit.contain,
                 ),
                 onTap: () {
-                  launchUrl(ucsb);
+                  launchUrl(chabot);
                 },
               ),
            ),
@@ -226,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   fit: BoxFit.contain,
                 ),
                 onTap: () {
-                  launchUrl(ucsb);
+                  launchUrl(ksi);
                 },
               ),
            ),
