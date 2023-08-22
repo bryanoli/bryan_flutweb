@@ -19,6 +19,8 @@ class _ProjectPageState extends State<ProjectPage> {
 
   final Uri datadriven = Uri.parse('https://about.datadrivenucsb.com/');
   final Uri gauchoride = Uri.parse('https://github.com/ucsb-cs156-s23/proj-gauchoride-s23-5pm-3');
+  final Uri cameraDemo = Uri.parse('https://github.com/bryanoli/Camera_Demo');
+  final Uri readySetBalance = Uri.parse('https://github.com/bryanoli/Ready_Set_Balance');
   
 
 
@@ -60,6 +62,40 @@ class _ProjectPageState extends State<ProjectPage> {
       )
 
     ); 
+
+    Widget cameraSummary = SizedBox(
+        height: MediaQuery.of(context).size.height/2,
+        width: MediaQuery.of(context).size.width/4,
+        child: const Padding(
+        padding: EdgeInsets.all(32),
+        child: Text('Android Project playing with the camera that is integrated in the android phone.',
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ), 
+        softWrap: true,
+        // textAlign: TextAlign.justify,
+        ),
+      )
+
+    ); 
+
+    Widget RSBSummary = SizedBox(
+        height: MediaQuery.of(context).size.height/2,
+        width: MediaQuery.of(context).size.width/4,
+        child: const Padding(
+        padding: EdgeInsets.all(32),
+        child: Text('Android Project that is a mobile fitness app. The features that it has are exercise videos, step counter, and BMI calculator',
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ), 
+        softWrap: true,
+        // textAlign: TextAlign.justify,
+        ),
+      )
+
+    ); 
     
 
     return Scaffold(
@@ -72,6 +108,8 @@ class _ProjectPageState extends State<ProjectPage> {
         children: [
             _projectTemplate('assets/images/datadriven.jpg', datadriven, "Data Driven", drivenSummary,context),
             _projectTemplate('assets/images/gauchoride.png', gauchoride, "GauchoRide", gauchoSummary,context),
+            _projectTemplate('assets/images/camerademo.png', cameraDemo, "Camera Demo", cameraSummary,context),
+            _projectTemplate('assets/images/rsblogo.png', readySetBalance, "ReadySetBalance", RSBSummary,context),
             
             // Other widgets go here
           ],
