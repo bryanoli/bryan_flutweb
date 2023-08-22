@@ -27,22 +27,24 @@ class _ResumePageState extends State<ResumePage> {
         title: Text(widget.title),
       ),
       drawer: NavDrawer(),
-      body: ListView(
-        
-        children:[
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    child: Image.asset(
-                    'assets/images/Bryan_Olivares_Resume.jpg',
-                    fit: BoxFit.contain,
-                  ),
-                  ),
-                  
-                ],
-            // Other widgets go here
+      body: SafeArea(
+        child: ListView(
           
-        ),
+          children:[
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      child: Image.asset(
+                      'assets/images/Bryan_Olivares_Resume.jpg',
+                      fit: BoxFit.contain,
+                    ),
+                    ),
+                    
+                  ],
+              // Other widgets go here
+            
+          ),
+      ),
       );  
   
  

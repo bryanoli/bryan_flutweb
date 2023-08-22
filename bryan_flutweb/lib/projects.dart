@@ -91,17 +91,19 @@ Row _projectTemplate(String image, Uri uri , String title, Widget summary, Build
   children: [
     // Expanded(
       // child: 
-      SizedBox(
-        height: 300,
-        width: 500,
-        child: InkWell(
-          onTap: () {
-            _showPopUp(context,title,summary,uri);
-          },
-          
-          child: Image.asset(
-            image,
-            fit: BoxFit.contain,
+      SafeArea(
+        child: SizedBox(
+          height:MediaQuery.of(context).size.height/4,
+          width: MediaQuery.of(context).size.width/2,
+          child: InkWell(
+            onTap: () {
+              _showPopUp(context,title,summary,uri);
+            },
+            
+            child: Image.asset(
+              image,
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),
@@ -109,22 +111,7 @@ Row _projectTemplate(String image, Uri uri , String title, Widget summary, Build
      const SizedBox(
       width: 20,
       ),
-    // Column(
-    //   mainAxisSize: MainAxisSize.min,
-    //   children: [
-    //     Text(title, style: const TextStyle(
-    //     fontWeight: FontWeight.bold,
-    //   ),
-    //   ),
-    //    Container(
-    //   constraints: const BoxConstraints(
-    //     maxHeight: 300,
-    //     maxWidth: 500, // Adjust the width value as per your desired maximum width
-    //   ),
-    //   child: summary,
-    // ),
-    //   ],
-    // ),
+  
    
   ],
 );

@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
     title: Text(widget.title),
   ),
   drawer: NavDrawer(),
-  body: Center(
+  body: SafeArea(
     child: ListView(
       children: [
         Stack(
@@ -108,14 +108,16 @@ class _MyHomePageState extends State<MyHomePage> {
               
 
             Positioned(
-              child: Container(
-                height:MediaQuery.of(context).size.height/4,
-                width: MediaQuery.of(context).size.width/2,
-                decoration:  const BoxDecoration(
-                    
-                ),
-
-                ),
+              child: SafeArea(
+                child: Container(
+                  height:MediaQuery.of(context).size.height/4,
+                  width: MediaQuery.of(context).size.width/2,
+                  decoration:  const BoxDecoration(
+                      
+                  ),
+              
+                  ),
+              ),
               ),
             Positioned(
               top: 200,
@@ -143,39 +145,41 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           Positioned(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // mainAxisSize: MainAxisSize.max,
-                // crossAxisAlignment: CrossAxisAlignment.,
-                
-                children: <Widget>[
-                 IconButton(
-                  hoverColor: Colors.amberAccent,
-                  icon: const Icon(
-                    SimpleIcons.github,
-                    color:Color.fromARGB(255, 255, 0, 0),
-                    size: 50
+              child: SafeArea(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisSize: MainAxisSize.max,
+                  // crossAxisAlignment: CrossAxisAlignment.,
+                  
+                  children: <Widget>[
+                   IconButton(
+                    hoverColor: Colors.amberAccent,
+                    icon: const Icon(
+                      SimpleIcons.github,
+                      color:Color.fromARGB(255, 255, 0, 0),
+                      size: 50
+                    ),
+                    onPressed: () {
+                        launchUrl(github);
+                   }
                   ),
-                  onPressed: () {
-                      launchUrl(github);
-                 }
-                ),
-                const SizedBox(width: 20),
-                IconButton(
-                  hoverColor: Colors.amberAccent,
-                  icon: const Icon(
-                    SimpleIcons.linkedin,
-                    color:Color.fromARGB(255, 255, 0, 0),
-                    size: 50
+                  const SizedBox(width: 20),
+                  IconButton(
+                    hoverColor: Colors.amberAccent,
+                    icon: const Icon(
+                      SimpleIcons.linkedin,
+                      color:Color.fromARGB(255, 255, 0, 0),
+                      size: 50
+                    ),
+                    onPressed: () {
+                        launchUrl(linkedin);
+                   }
                   ),
-                  onPressed: () {
-                      launchUrl(linkedin);
-                 }
-                ),
-                
-                ],
-                
-                ),
+                  
+                  ],
+                  
+                  ),
+              ),
 
                 ),
 
@@ -184,53 +188,57 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
         SizedBox(
-          child: Row(
-            children: [
-              SizedBox(
-              height: 300,
-              width: 500,
-              child: InkWell(
-                hoverColor: Colors.amberAccent,
-                child: Image.asset(
-                  'assets/images/ucsblogo.jpg',
-                  fit: BoxFit.contain,
+          child: SafeArea(
+            child: Row(
+              children: [
+                SizedBox(
+                height: 300,
+                width: 500,
+                child: InkWell(
+                  hoverColor: Colors.amberAccent,
+                  child: Image.asset(
+                    'assets/images/ucsblogo.jpg',
+                    fit: BoxFit.contain,
+                  ),
+                  onTap: () {
+                    launchUrl(ucsb);
+                  },
                 ),
-                onTap: () {
-                  launchUrl(ucsb);
-                },
-              ),
-           ),
-           const SizedBox(width:200),
-           SizedBox(
-              height: 300,
-              width: 500,
-              child: InkWell(
-                hoverColor: Colors.amberAccent,
-                child: Image.asset(
-                  'assets/images/chabot_logo.jpg',
-                  fit: BoxFit.contain,
+             ),
+             const SizedBox(width:200),
+             SafeArea(
+               child: SizedBox(
+                  height: 300,
+                  width: 500,
+                  child: InkWell(
+                    hoverColor: Colors.amberAccent,
+                    child: Image.asset(
+                      'assets/images/chabot_logo.jpg',
+                      fit: BoxFit.contain,
+                    ),
+                    onTap: () {
+                      launchUrl(chabot);
+                    },
+                  ),
+               ),
+             ),
+              const SizedBox(width:200),
+             SizedBox(
+                height: 300,
+                width: 500,
+                child: InkWell(
+                  hoverColor: Colors.amberAccent,
+                  child: Image.asset(
+                    'assets/images/karlstorzlogo.png',
+                    fit: BoxFit.contain,
+                  ),
+                  onTap: () {
+                    launchUrl(ksi);
+                  },
                 ),
-                onTap: () {
-                  launchUrl(chabot);
-                },
-              ),
-           ),
-            const SizedBox(width:200),
-           SizedBox(
-              height: 300,
-              width: 500,
-              child: InkWell(
-                hoverColor: Colors.amberAccent,
-                child: Image.asset(
-                  'assets/images/karlstorzlogo.png',
-                  fit: BoxFit.contain,
-                ),
-                onTap: () {
-                  launchUrl(ksi);
-                },
-              ),
-           ),
-            ],
+             ),
+              ],
+            ),
           ),
         ),
         textIntro,
