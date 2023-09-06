@@ -61,7 +61,7 @@ class ProjectPage extends StatelessWidget {
     ),
     ProjectData(
       image: 'assets/images/soccerball.jpg',
-      uri: Uri.parse('https://about.datadrivenucsb.com/'),
+      uri: Uri.parse('https://github.com/bryanoli/Fantasy_Futbol'),
       title: 'FantasyFutbol',
       summary: SummaryWidget(
         text: 'Flutter Project creating a fantasy futbol website. It is still incomplete, but users can generate their own player cards based on'

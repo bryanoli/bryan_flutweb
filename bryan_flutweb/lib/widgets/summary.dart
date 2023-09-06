@@ -15,7 +15,7 @@ class SummaryWidget extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 50,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
           softWrap: true,
