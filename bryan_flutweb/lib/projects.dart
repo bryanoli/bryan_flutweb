@@ -1,175 +1,146 @@
+import 'package:bryan_flutweb/widgets/summary.dart';
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 
-class ProjectPage extends StatefulWidget {
-  const ProjectPage({super.key, required this.title});
 
-  
+class ProjectData {
+  final String image;
+  final Uri uri;
+  final String title;
+  final Widget summary;
+
+  ProjectData({
+    required this.image,
+    required this.uri,
+    required this.title,
+    required this.summary,
+  });
+}
+
+class ProjectPage extends StatelessWidget {
+  ProjectPage({super.key, required this.title});
 
   final String title;
 
-  @override
-  State<ProjectPage> createState() => _ProjectPageState();
-}
-
-class _ProjectPageState extends State<ProjectPage> {
-
-  final Uri datadriven = Uri.parse('https://about.datadrivenucsb.com/');
-  final Uri gauchoride = Uri.parse('https://github.com/ucsb-cs156-s23/proj-gauchoride-s23-5pm-3');
-  final Uri cameraDemo = Uri.parse('https://github.com/bryanoli/Camera_Demo');
-  final Uri readySetBalance = Uri.parse('https://github.com/bryanoli/Ready_Set_Balance');
-  
-
+  final List<ProjectData> projects = [
+    ProjectData(
+      image: 'assets/images/datadriven.jpg',
+      uri: Uri.parse('https://about.datadrivenucsb.com/'),
+      title: 'Data Driven',
+      summary: SummaryWidget(
+        text: 'Achieved second place in a competitive capstone project, working collaboratively with a team to'
+            ' design, develop, and present innovative solutions. For more information click on the button on the bottom.',
+      ),
+    ),
+    ProjectData(
+      image: 'assets/images/gauchoride.png',
+      uri: Uri.parse('https://github.com/ucsb-cs156-s23/proj-gauchoride-s23-5pm-3'),
+      title: 'GauchoRide',
+      summary: SummaryWidget(
+        text: 'Contribute to GauchoRide, an application to assist students facing difficulties attending classes.'
+        ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the button on the bottom.',
+      ),
+    ),
+    ProjectData(
+      image: 'assets/images/camerademo.png',
+      uri: Uri.parse('https://github.com/bryanoli/Camera_Demo'),
+      title: 'Camera Demo',
+      summary: SummaryWidget(
+        text: 'Android Project playing with the camera that is integrated in the android phone.',
+      ),
+    ),
+    ProjectData(
+      image: 'assets/images/rsblogo.png',
+      uri: Uri.parse('https://github.com/bryanoli/Ready_Set_Balance'),
+      title: 'ReadySetBalance',
+      summary: SummaryWidget(
+        text: 'Android Project that is a mobile fitness app. The features that it has are exercise videos, step counter, and BMI calculator',
+      ),
+    ),
+    ProjectData(
+      image: 'assets/images/soccerball.jpg',
+      uri: Uri.parse('https://about.datadrivenucsb.com/'),
+      title: 'FantasyFutbol',
+      summary: SummaryWidget(
+        text: 'Flutter Project creating a fantasy futbol website. It is still incomplete, but users can generate their own player cards based on'
+        'league id and year of the season',
+      ),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    
-    Widget drivenSummary = SizedBox(
-        height: MediaQuery.of(context).size.height/2,
-        width: MediaQuery.of(context).size.width/4,
-        child: const Padding(
-        padding: EdgeInsets.all(10),
-        child: Text('Achieved second place in a competitive capstone project, working collaboratively with a team to'
-        ' design, develop, and present innovative solutions. For more infomation click on the button on the bottom.',
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ), 
-        softWrap: true,
-        // textAlign: TextAlign.justify,
-        ),
-      )
-
-    ); 
-
-    Widget gauchoSummary = SizedBox(
-        height: MediaQuery.of(context).size.height/2,
-        width: MediaQuery.of(context).size.width/4,
-        child: const Padding(
-        padding: EdgeInsets.all(10),
-        child: Text('Contribute to GauchoRide, an application to assist students facing difficulties attending classes.'
-        ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the button on the bottom.',
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ), 
-        softWrap: true,
-        // textAlign: TextAlign.justify,
-        ),
-      )
-
-    ); 
-
-    Widget cameraSummary = SizedBox(
-        height: MediaQuery.of(context).size.height/2,
-        width: MediaQuery.of(context).size.width/4,
-        child: const Padding(
-        padding: EdgeInsets.all(10),
-        child: Text('Android Project playing with the camera that is integrated in the android phone.',
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ), 
-        softWrap: true,
-        // textAlign: TextAlign.justify,
-        ),
-      )
-
-    ); 
-
-    Widget RSBSummary = SizedBox(
-        height: MediaQuery.of(context).size.height/2,
-        width: MediaQuery.of(context).size.width/4,
-        child: const Padding(
-        padding: EdgeInsets.all(10),
-        child: Text('Android Project that is a mobile fitness app. The features that it has are exercise videos, step counter, and BMI calculator',
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ), 
-        softWrap: true,
-        // textAlign: TextAlign.justify,
-        ),
-      )
-
-    ); 
-    
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
       ),
       drawer: NavDrawer(),
-      body: GridView.count(
-        crossAxisCount:2,
-        children: [
-            _projectTemplate('assets/images/datadriven.jpg', datadriven, "Data Driven", drivenSummary,context),
-            _projectTemplate('assets/images/gauchoride.png', gauchoride, "GauchoRide", gauchoSummary,context),
-            _projectTemplate('assets/images/camerademo.png', cameraDemo, "Camera Demo", cameraSummary,context),
-            _projectTemplate('assets/images/rsblogo.png', readySetBalance, "ReadySetBalance", RSBSummary,context),
-            
-            // Other widgets go here
-          ],
+      body: Center(
+        child: ListView.builder(
+          itemCount: projects.length,
+          itemBuilder: (BuildContext context, int index) {
+            final project = projects[index];
+            return _projectTemplate(project, context);
+          },
         ),
-      );
-    
+      ),
+    );
   }
-}
 
-
-//Template of creating containers containing the projects
-Row _projectTemplate(String image, Uri uri , String title, Widget summary, BuildContext context) {
-
-  return Row(
-  mainAxisSize: MainAxisSize.min,
-  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-  children: [
-    // Expanded(
-      // child: 
-      SafeArea(
-        child: SizedBox(
-          height:MediaQuery.of(context).size.height*.7,
-          width: MediaQuery.of(context).size.width*.5,
-          child: InkWell(
-            onTap: () {
-              _showPopUp(context,title,summary,uri);
-            },
-            
-            child: Image.asset(
-              image,
-              fit: BoxFit.contain,
+  Widget _projectTemplate(ProjectData project, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.4,
+            child: Text(
+              project.title,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                // letterSpacing: 2,
+              ),
             ),
           ),
         ),
-      ),
-    // ),
-    
-  
-   
-  ],
-);
+        Expanded(
+          child: Center(
+            child: InkWell(
+              onTap: () {
+                _showPopUp(context, project);
+              },
+              child: Image.asset(
+                project.image,
+                width: MediaQuery.of(context).size.width * 0.6, // Adjust this value to control image width
+                height: MediaQuery.of(context).size.height * 0.6, // Adjust this value to control image height
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
-}
-
-
-void _showPopUp(BuildContext context, String title, Widget summary, Uri uri) {
+  void _showPopUp(BuildContext context, ProjectData project) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(title),
-          content: summary,
+          title: Text(project.title),
+          content: project.summary,
           actions: <Widget>[
-           TextButton(onPressed:() { 
-            launchUrl(uri);
-            }, 
-           child: Text (title)
-           ),
-           TextButton(
+            TextButton(
+              onPressed: () {
+                launchUrl(project.uri);
+              },
+              child: Text(project.title),
+            ),
+            TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close the pop-up
               },
@@ -180,3 +151,6 @@ void _showPopUp(BuildContext context, String title, Widget summary, Uri uri) {
       },
     );
   }
+
+}
+
