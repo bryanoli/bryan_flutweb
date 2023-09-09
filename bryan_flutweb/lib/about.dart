@@ -38,59 +38,62 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildTextIntro() {
-    return Column(
-          children: [
-            const Align(
-              alignment: Alignment.topCenter,
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.all(32),
-                  child: Text(
-                    "Bryan Olivares",
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 3),
+      child: Column(
+            children: [
+              const Align(
+                alignment: Alignment.topCenter,
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(32),
+                    child: Text(
+                      "Bryan Olivares",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height:20,),
-            buildProfilePic(),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: ()=> launchUrl(uriListSocials.first),
-                  hoverColor: Colors.red, 
-                  icon: const Icon(
-                    SimpleIcons.github,
-                    color: Colors.purple,
-                    size: 50
+              const SizedBox(height:20,),
+              buildProfilePic(),
+              const SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: ()=> launchUrl(uriListSocials.first),
+                    hoverColor: Colors.red, 
+                    icon: const Icon(
+                      SimpleIcons.github,
+                      color: Colors.purple,
+                      size: 50
+                    ),
                   ),
-                ),
-                IconButton(
-                  onPressed: ()=> launchUrl(uriListSocials.elementAt(1)),
-                  hoverColor: Colors.red, 
-                  icon: const Icon(
-                    SimpleIcons.linkedin,
-                    color: Colors.purple,
-                    size: 50
+                  IconButton(
+                    onPressed: ()=> launchUrl(uriListSocials.elementAt(1)),
+                    hoverColor: Colors.red, 
+                    icon: const Icon(
+                      SimpleIcons.linkedin,
+                      color: Colors.purple,
+                      size: 50
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20,),
-            FloatingActionButton.extended(
-              hoverColor: Colors.purple,
-              onPressed:() => Navigator.pushNamed(context, '/resume'), 
-              label: const Text('Resume'),
-              backgroundColor: Colors.pink,
-            ),
-            
-          ],
-        );
+                ],
+              ),
+              const SizedBox(height: 20,),
+              FloatingActionButton.extended(
+                hoverColor: Colors.purple,
+                onPressed:() => Navigator.pushNamed(context, '/resume'), 
+                label: const Text('Resume'),
+                backgroundColor: Colors.pink,
+              ),
+              
+            ],
+          ),
+    );
   }
 
   Widget buildTextAbout(var height, var weight) {
@@ -132,112 +135,129 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center, // Align children at the top
-              children: [
-                Expanded(
-                  child: buildTextIntro(),
-                ),
-                Expanded(
-                  child: buildTextAbout(screenSize.height, screenSize.width),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center, // Align children at the top
+                children: [
+                  Expanded(
+                    child: buildTextIntro(),
+                  ),
+                  Expanded(
+                    child: buildTextAbout(screenSize.height, screenSize.width),
+                  ),
+                ],
+              ),
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: timeLineList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          // if (index > 0)
-                            Visibility(
-                              maintainState: true,
-                              maintainAnimation: true,
-                              maintainSize: true,
-                              visible: index > 0,
-                              child: Container(
-                                height: 70,
-                                width: 2,
-                                color: index == 0? Colors.grey[900]:Colors.blue,
+        
+            const SizedBox(
+              height: 30,
+              child: Text('TIMELINE',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: timeLineList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            // if (index > 0)
+                              Visibility(
+                                maintainState: true,
+                                maintainAnimation: true,
+                                maintainSize: true,
+                                visible: index > 0,
+                                child: Container(
+                                  height: 70,
+                                  width: 2,
+                                  color: index == 0? Colors.grey[900]:Colors.blue,
+                                ),
                               ),
-                            ),
-                          Container(
-                            margin: const EdgeInsets.only(right: 5, left: 8),
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: IconButton(
-                              onPressed: () => launchUrl(timeLineList[index].uri),
-                              icon: Icon(timeLineList[index].icon),
-                            ),
-                          ),
-                          
-                            Visibility(
-                              maintainState: true,
-                              maintainAnimation: true,
-                              maintainSize: true,
-                              visible: index != timeLineList.length -1,
-                              child: Container(
-                                height: 70,
-                                width: 2,
-                                color: index == timeLineList.length -1 ? Colors.grey[900]:Colors.blue,
-                              ),
-                            ),
-                        ],
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 140,
-                          margin: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
-                            color: Colors.red,
-                            border: Border(
-                              right: BorderSide(
-                                width: 3,
+                            Container(
+                              margin: const EdgeInsets.only(right: 5, left: 8),
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
                                 color: Colors.purple,
+                                borderRadius: BorderRadius.circular(50),
                               ),
-                              bottom: BorderSide(
-                                width: 3,
-                                color: Colors.purple,
+                              child: IconButton(
+                                onPressed: () => launchUrl(timeLineList[index].uri),
+                                icon: Icon(timeLineList[index].icon),
                               ),
                             ),
-                            boxShadow: [
-                              BoxShadow(blurRadius: 3,
-                              color: Colors.black26)
-                            ],
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(timeLineList[index].title,
-                                  style: TextStyle(
-                                    fontSize: 22, 
-                                    fontWeight: FontWeight.bold,
+                            
+                              Visibility(
+                                maintainState: true,
+                                maintainAnimation: true,
+                                maintainSize: true,
+                                visible: index != timeLineList.length -1,
+                                child: Container(
+                                  height: 70,
+                                  width: 2,
+                                  color: index == timeLineList.length -1 ? Colors.grey[900]:Colors.blue,
+                                ),
+                              ),
+                          ],
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 140,
+                            margin: const EdgeInsets.all(10),
+                            decoration: const BoxDecoration(
+                              color: Colors.red,
+                              border: Border(
+                                right: BorderSide(
+                                  width: 3,
+                                  color: Colors.purple,
+                                ),
+                                bottom: BorderSide(
+                                  width: 3,
+                                  color: Colors.purple,
+                                ),
+                              ),
+                              boxShadow: [
+                                BoxShadow(blurRadius: 3,
+                                color: Colors.black26)
+                              ],
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(timeLineList[index].title,
+                                    style: TextStyle(
+                                      fontSize: 22, 
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+                                    Text(timeLineList[index].description,
+                                    style: TextStyle(
+                                      fontSize: 17, 
+                                      fontWeight: FontWeight.normal,
                                   ),),
-                                  Text(timeLineList[index].description,
-                                  style: TextStyle(
-                                    fontSize: 17, 
-                                    fontWeight: FontWeight.normal,
-                                ),),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              }
+                      ],
+                    ),
+                  );
+                }
+              ),
             ),
           ]
         ),

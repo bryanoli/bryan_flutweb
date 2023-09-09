@@ -35,7 +35,7 @@ class _ResumePageState extends State<ResumePage> {
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       child: Image.asset(
-                      'assets/images/Bryan_Olivares_Resume.jpg',
+                      'assets/images/Bryan_Olivares_Resume_1.jpg',
                       fit: BoxFit.contain,
                     ),
                     ),
