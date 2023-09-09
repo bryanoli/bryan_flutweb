@@ -21,8 +21,7 @@ class NavDrawer extends StatelessWidget {
           ),
           _buildMult(Icons.input, 'Home', '/', context),
           _buildMult(Icons.verified_user, 'Projects', '/projects', context),
-          // _buildMult(Icons.settings, 'Settings', context),
-          // _buildMult(Icons.border_color, 'Feedback', context),
+          _buildMult(Icons.lock_clock, 'TimeLine', '/timeline', context)
         ],
       ),
     );

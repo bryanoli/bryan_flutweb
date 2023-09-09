@@ -3,6 +3,7 @@ import 'package:bryan_flutweb/widgets/resume.dart';
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/about.dart';
 import 'package:bryan_flutweb/projects.dart';
+import 'package:bryan_flutweb/widgets/timelineEvents.dart';
 
 void main() {
   runApp(const MyApp());

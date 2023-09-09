@@ -102,22 +102,27 @@ class ProjectPage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                // letterSpacing: 2,
               ),
             ),
           ),
         ),
         Expanded(
           child: Center(
-            child: InkWell(
-              onTap: () {
-                _showPopUp(context, project);
-              },
-              child: Image.asset(
-                project.image,
-                width: MediaQuery.of(context).size.width * 0.6, // Adjust this value to control image width
-                height: MediaQuery.of(context).size.height * 0.6, // Adjust this value to control image height
-                fit: BoxFit.contain,
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.yellowAccent, width: 2),
+                borderRadius: BorderRadius.circular(20)
+              ),
+              child: InkWell(
+                onTap: () {
+                  _showPopUp(context, project);
+                },
+                child: Image.asset(
+                  project.image,
+                  width: MediaQuery.of(context).size.width * 0.6, // Adjust this value to control image width
+                  height: MediaQuery.of(context).size.height * 0.6, // Adjust this value to control image height
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),

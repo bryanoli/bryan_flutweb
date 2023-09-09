@@ -31,6 +31,8 @@ dependencies:
   flutter_pdfview: ^1.2.5
   simple_icons: ^7.10.0
   animated_text_kit: ^4.2.2
+  timelines: ^0.1.0
+  timeline_tile: ^2.0.0
   flutter:
     sdk: flutter
   url_launcher: ^6.0.9
