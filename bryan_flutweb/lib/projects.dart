@@ -113,8 +113,8 @@ class _ProjectPageState extends State<ProjectPage> {
           },
           child: Image.asset(
             project.image,
-            width: MediaQuery.of(context).size.width * 0.6,
-            height: MediaQuery.of(context).size.height * 0.6,
+            width: MediaQuery.of(context).size.width * 0.4,
+            height: MediaQuery.of(context).size.height * 0.4,
             fit: BoxFit.contain,
           ),
         ),
@@ -132,7 +132,7 @@ class _ProjectPageState extends State<ProjectPage> {
         autoPlay: false,
         enlargeCenterPage: true,
         viewportFraction: 0.4,
-        aspectRatio: 3.0,
+        aspectRatio: 3,
         initialPage: 2,
       ),
     );
