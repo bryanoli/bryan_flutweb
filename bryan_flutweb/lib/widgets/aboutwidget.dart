@@ -19,6 +19,7 @@ class _AboutWidgetState extends State<AboutWidget> {
   Uri.parse('https://www.linkedin.com/in/bryanoli/'),
   ];
 
+  
   Widget buildProfilePic(){
       return const CircleAvatar(
         radius: 100,
