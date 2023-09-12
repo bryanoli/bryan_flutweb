@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 SliverToBoxAdapter(
                   child: AboutWidget(),
                 ),
-                 TimeLineWidget(title: 'Timeline',),
+                 TimeLineWidget(),
               ],
             ), 
         ],

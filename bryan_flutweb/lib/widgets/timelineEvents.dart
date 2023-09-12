@@ -135,7 +135,7 @@ class TimeLineContainers extends StatelessWidget{
 }
 
 class TimeLineWidget extends StatefulWidget {
-  const TimeLineWidget({super.key, required String title});
+  const TimeLineWidget({super.key,});
 
   @override
   State<TimeLineWidget> createState() => _TimeLineWidgetState();
