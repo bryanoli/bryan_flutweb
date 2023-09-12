@@ -29,7 +29,7 @@ class ProjectPage extends StatelessWidget {
       image: 'assets/images/datadriven.jpg',
       uri: Uri.parse('https://about.datadrivenucsb.com/'),
       title: 'Data Driven',
-      summary: SummaryWidget(
+      summary: const SummaryWidget(
         text: 'Achieved second place in a competitive capstone project, working collaboratively with a team to'
             ' design, develop, and present innovative solutions. For more information click on the button on the bottom.',
       ),
@@ -38,7 +38,7 @@ class ProjectPage extends StatelessWidget {
       image: 'assets/images/gauchoride.png',
       uri: Uri.parse('https://github.com/ucsb-cs156-s23/proj-gauchoride-s23-5pm-3'),
       title: 'GauchoRide',
-      summary: SummaryWidget(
+      summary: const SummaryWidget(
         text: 'Contribute to GauchoRide, an application to assist students facing difficulties attending classes.'
         ' The application serves as a platform for planning and organizing rides and pickups. For more infomation click on the button on the bottom.',
       ),
@@ -47,7 +47,7 @@ class ProjectPage extends StatelessWidget {
       image: 'assets/images/camerademo.png',
       uri: Uri.parse('https://github.com/bryanoli/Camera_Demo'),
       title: 'Camera Demo',
-      summary: SummaryWidget(
+      summary: const SummaryWidget(
         text: 'Android Project playing with the camera that is integrated in the android phone.',
       ),
     ),
@@ -55,7 +55,7 @@ class ProjectPage extends StatelessWidget {
       image: 'assets/images/rsblogo.png',
       uri: Uri.parse('https://github.com/bryanoli/Ready_Set_Balance'),
       title: 'ReadySetBalance',
-      summary: SummaryWidget(
+      summary: const SummaryWidget(
         text: 'Android Project that is a mobile fitness app. The features that it has are exercise videos, step counter, and BMI calculator',
       ),
     ),
@@ -63,7 +63,7 @@ class ProjectPage extends StatelessWidget {
       image: 'assets/images/soccerball.jpg',
       uri: Uri.parse('https://github.com/bryanoli/Fantasy_Futbol'),
       title: 'FantasyFutbol',
-      summary: SummaryWidget(
+      summary: const SummaryWidget(
         text: 'Flutter Project creating a fantasy futbol website. It is still incomplete, but users can generate their own player cards based on'
         'league id and year of the season',
       ),
@@ -99,7 +99,7 @@ class ProjectPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.4,
             child: Text(
               project.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),

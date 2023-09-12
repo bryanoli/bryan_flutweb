@@ -143,14 +143,9 @@ class TimeLineWidget extends StatefulWidget {
 
  
 class _TimeLineWidgetState extends State<TimeLineWidget> {
-
-  bool mobile = false;
+  
   @override
   Widget build(BuildContext context) {
-    var device = MediaQuery.of(context);
-    var screenSize = device.size;
-    mobile = screenSize.width > 700 ? false : true;
-    
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         childCount: timeLineList.length,
