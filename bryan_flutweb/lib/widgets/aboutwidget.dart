@@ -143,7 +143,7 @@ class _AboutWidgetState extends State<AboutWidget> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 50),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center, // Align children at the top
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                   child: buildTextIntro(),
@@ -154,15 +154,12 @@ class _AboutWidgetState extends State<AboutWidget> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 30,
-            child: Text('TIMELINE',
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+          const Divider(
+            height: 20,
+            thickness: 5,
+            indent: 0,
+            endIndent: 0,
+            color: Colors.white,
           ),
         ],
       ),

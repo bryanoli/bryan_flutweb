@@ -1,6 +1,5 @@
 import 'package:bryan_flutweb/widgets/summary.dart';
 import 'package:flutter/material.dart';
-import 'package:bryan_flutweb/widgets/menunav.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -19,10 +18,14 @@ class ProjectData {
   });
 }
 
-class ProjectPage extends StatelessWidget {
-  ProjectPage({super.key, required this.title});
+class ProjectPage extends StatefulWidget {
+  const ProjectPage({super.key});
 
-  final String title;
+  @override
+  State<ProjectPage> createState() => _ProjectPageState();
+}
+
+class _ProjectPageState extends State<ProjectPage> {
 
   final List<ProjectData> projects = [
     ProjectData(
@@ -70,42 +73,11 @@ class ProjectPage extends StatelessWidget {
     ),
   ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-      ),
-      drawer: NavDrawer(),
-      body: Center(
-        child: ListView.builder(
-          itemCount: projects.length,
-          itemBuilder: (BuildContext context, int index) {
-            final project = projects[index];
-            return _projectTemplate(project, context);
-          },
-        ),
-      ),
-    );
-  }
 
-  Widget _projectTemplate(ProjectData project, BuildContext context) {
+ Widget _projectTemplate(ProjectData project, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Expanded(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.4,
-            child: Text(
-              project.title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
         Expanded(
           child: Center(
             child: Container(
@@ -157,5 +129,16 @@ class ProjectPage extends StatelessWidget {
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        childCount: projects.length,
+        (context, index){
+          final project = projects[index];
+          return _projectTemplate(project, context);
+        }
+      ), 
+    );
+  }
 }
-

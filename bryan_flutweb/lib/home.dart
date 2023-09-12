@@ -1,10 +1,9 @@
 
 import 'package:bryan_flutweb/widgets/aboutwidget.dart';
+import 'package:bryan_flutweb/widgets/titlewidget.dart';
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
-import 'package:simple_icons/simple_icons.dart';
-import 'package:timeline_tile/timeline_tile.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:bryan_flutweb/projects.dart';
 import 'package:bryan_flutweb/widgets/timelineEvents.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -18,8 +17,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  static final _controller = ScrollController();
 
   List<Widget>navItems = [
     ElevatedButton(
@@ -66,7 +63,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 SliverToBoxAdapter(
                   child: AboutWidget(),
                 ),
-                 TimeLineWidget(),
+                SliverToBoxAdapter(
+                  child: TitleWidget(title: 'Projects',),
+                ),
+                ProjectPage(),
+                SliverToBoxAdapter(
+                  child: Divider(
+                    height: 20,
+                    thickness: 5,
+                    indent: 0,
+                    endIndent: 0,
+                    color: Colors.white,
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: TitleWidget(title: 'Timeline',),
+                ),
+                TimeLineWidget(),
               ],
             ), 
         ],
