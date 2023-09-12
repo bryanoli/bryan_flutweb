@@ -66,7 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 SliverToBoxAdapter(
                   child: TitleWidget(title: 'Projects',),
                 ),
-                ProjectPage(),
+                SliverToBoxAdapter(
+                  child: ProjectPage(),
+                ),
                 SliverToBoxAdapter(
                   child: Divider(
                     height: 20,

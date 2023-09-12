@@ -1,6 +1,7 @@
 import 'package:bryan_flutweb/widgets/summary.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 
 
@@ -73,36 +74,6 @@ class _ProjectPageState extends State<ProjectPage> {
     ),
   ];
 
-
- Widget _projectTemplate(ProjectData project, BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Expanded(
-          child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.yellowAccent, width: 2),
-                borderRadius: BorderRadius.circular(20)
-              ),
-              child: InkWell(
-                onTap: () {
-                  _showPopUp(context, project);
-                },
-                child: Image.asset(
-                  project.image,
-                  width: MediaQuery.of(context).size.width * 0.6, // Adjust this value to control image width
-                  height: MediaQuery.of(context).size.height * 0.6, // Adjust this value to control image height
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   void _showPopUp(BuildContext context, ProjectData project) {
     showDialog(
       context: context,
@@ -129,16 +100,94 @@ class _ProjectPageState extends State<ProjectPage> {
     );
   }
 
+  Widget _projectTemplate(ProjectData project, BuildContext context) {
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.yellowAccent, width: 2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: InkWell(
+          onTap: () {
+            _showPopUp(context, project);
+          },
+          child: Image.asset(
+            project.image,
+            width: MediaQuery.of(context).size.width * 0.6,
+            height: MediaQuery.of(context).size.height * 0.6,
+            fit: BoxFit.contain,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: projects.length,
-        (context, index){
-          final project = projects[index];
-          return _projectTemplate(project, context);
-        }
-      ), 
+    return CarouselSlider(
+      items: projects.map((project) {
+        return _projectTemplate(project, context);
+      }).toList(),
+      options: CarouselOptions(
+        autoPlay: false,
+        enlargeCenterPage: true,
+        viewportFraction: 0.4,
+        aspectRatio: 3.0,
+        initialPage: 2,
+      ),
     );
   }
 }
+
+
+// Widget _projectTemplate(ProjectData project, BuildContext context) {
+//   return Column(
+//     children: [
+//       CarouselSlider(
+//         items: [
+//           Expanded(
+//               child: Center(
+//                 child: Container(
+//                   decoration: BoxDecoration(
+//                   border: Border.all(color: Colors.yellowAccent, width: 2),
+//                   borderRadius: BorderRadius.circular(20)
+//                 ),
+//                 child: InkWell(
+//                   onTap: () {
+//                     _showPopUp(context, project);
+//                   },
+//                   child: Image.asset(
+//                     project.image,
+//                     width: MediaQuery.of(context).size.width * 0.6, // Adjust this value to control image width
+//                     height: MediaQuery.of(context).size.height * 0.6, // Adjust this value to control image height
+//                     fit: BoxFit.contain,
+//                   ),
+//                 )
+//               ),
+//             ),
+//           ),
+//         ], 
+//         options: CarouselOptions(
+//           autoPlay: false,
+//           enlargeCenterPage: true,
+//           viewportFraction: 0.4,
+//           aspectRatio: 3.0,
+//           initialPage: 2,
+//         ),
+//       )
+//     ],
+//   );
+// }
+//   @override
+//   Widget build(BuildContext context) {
+//     return SliverList(
+//       delegate: SliverChildBuilderDelegate(
+//         childCount: projects.length,
+//         (context, index){
+//           final project = projects[index];
+//           return _projectTemplate(project, context);
+//         }
+//       ), 
+//     );
+//   }
+// }
