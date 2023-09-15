@@ -16,74 +16,105 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
-  List<Widget>navItems = [
-    ElevatedButton(
-      onPressed: ()=>{}, 
-      child: const Text("Projects",
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold
-        ),
-      ),
-    ),
-    ElevatedButton(
-      onPressed: ()=>{
-      }, 
-      child: const Text("Timeline",
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold
-        ),
-      ),
-    ),
+class _MyHomePageState extends State<MyHomePage>{
+  final ScrollController _scrollController = ScrollController();
+  static const List<String> _sectionTitles = [
+    "Home",
+    'Projects',
+    'TimeLine',
   ];
-
-  
   bool mobile = false;
+
+
   @override
   Widget build(BuildContext context) {
-    final PageController controller = PageController();
+    
     var device = MediaQuery.of(context);
     var screenSize = device.size;
     mobile = screenSize.width > 700 ? false : true;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions:mobile ? null: navItems,
-      ),
-      drawer: mobile ? NavDrawer() : null,
-      body: PageView(
-        controller: controller,
-          children:const [
-            CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: AboutWidget(),
-                ),
-                SliverToBoxAdapter(
-                  child: TitleWidget(title: 'Projects',),
-                ),
-                SliverToBoxAdapter(
-                  child: ProjectPage(),
-                ),
-                SliverToBoxAdapter(
-                  child: Divider(
-                    height: 20,
-                    thickness: 5,
-                    indent: 0,
-                    endIndent: 0,
-                    color: Colors.white,
+    Map<String, double> sectionOffsets = {
+      'Home': 0.0,
+      'Projects': MediaQuery.of(context).size.height / 1.5,
+      'TimeLine': MediaQuery.of(context).size.height * 2 / 1.5,
+    };
+    
+    
+
+return Scaffold(
+  drawer: mobile ? Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: <Widget>[
+        const DrawerHeader(
+          child: Text('Menu',
+            style: TextStyle(color: Colors.white, fontSize: 25),
+          ),
+        ),
+        for (final sectionTitle in _sectionTitles)
+          ListTile(
+            title: Text(sectionTitle),
+            onTap: () {
+              // Scroll to the corresponding section
+              _scrollController.animateTo(
+                sectionOffsets[sectionTitle]!,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
+              // Close the drawer
+              Navigator.pop(context);
+            },
+          ),
+      ],
+    ),
+  ): null,
+      body: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          SliverAppBar(
+            floating: false,
+            pinned: true,
+            snap: false,
+            title: const Text('Home'),
+            actions: mobile ? null : [
+              for (final sectionTitle in _sectionTitles)
+                ElevatedButton(
+                  onPressed: ()=>{_scrollController.animateTo(
+                    sectionOffsets[sectionTitle]!,
+                    duration: const Duration(milliseconds: 200), 
+                    curve: Curves.easeInOut
+                  )},
+                  child: Text(sectionTitle,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: TitleWidget(title: 'Timeline',),
-                ),
-                TimeLineWidget(),
+                )
               ],
-            ), 
+            ),
+          const SliverToBoxAdapter(
+            child: AboutWidget(),
+          ),
+          const SliverToBoxAdapter(
+            child: TitleWidget(title: 'Projects',),
+          ),
+          const SliverToBoxAdapter(
+            child: ProjectPage(),
+          ),
+          const SliverToBoxAdapter(
+            child: Divider(
+              height: 20,
+              thickness: 5,
+              indent: 0,
+              endIndent: 0,
+              color: Colors.white,
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: TitleWidget(title: 'Timeline',),
+          ),
+          const TimeLineWidget(),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:bryan_flutweb/widgets/resume.dart';
 import 'package:flutter/material.dart';
 import 'package:bryan_flutweb/widgets/menunav.dart';
 import 'package:simple_icons/simple_icons.dart';
@@ -80,7 +81,6 @@ class _AboutWidgetState extends State<AboutWidget> {
             label: const Text('Resume'),
             backgroundColor: Colors.pink,
           ),
-          
         ],
       ),
     );
