@@ -38,6 +38,12 @@ class _MyHomePageState extends State<MyHomePage>{
       'Projects': MediaQuery.of(context).size.height / 1.5,
       'TimeLine': MediaQuery.of(context).size.height * 2 / 1.5,
     };
+
+    Map<String, double> sectionOffsetsMobile = {
+      'Home': 0.0,
+      'Projects': MediaQuery.of(context).size.height / 1,
+      'TimeLine': MediaQuery.of(context).size.height * 2 / 1.5,
+    };
     
     
 
@@ -57,7 +63,7 @@ return Scaffold(
             onTap: () {
               // Scroll to the corresponding section
               _scrollController.animateTo(
-                sectionOffsets[sectionTitle]!,
+                sectionOffsetsMobile[sectionTitle]!,
                 duration: const Duration(milliseconds: 500),
                 curve: Curves.easeInOut,
               );

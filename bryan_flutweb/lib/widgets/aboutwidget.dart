@@ -109,7 +109,7 @@ class _AboutWidgetState extends State<AboutWidget> {
               padding: EdgeInsets.all(32),
               child: SelectionArea(
                 child: Text(
-                'Computer Engineer with a focus on software development.'
+                ' Computer Engineer with a focus on software development.'
                 ' I started my engineering journey at Chabot College by learning all lower'
                 ' division math, computer science, and physics classes.'
                 ' Then, continued at the University of California Santa Barbara, completing classes'
@@ -138,12 +138,18 @@ class _AboutWidgetState extends State<AboutWidget> {
     var screenSize = device.size;
     mobile = screenSize.width > 700 ? false : true;
 
-    return SingleChildScrollView(
-      child:Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50),
-            child: Row(
+return SingleChildScrollView(
+    child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50),
+          child: mobile ? Column(
+            children: [
+              buildTextIntro(),
+              SizedBox(height: 30,),
+              buildTextAbout(screenSize.height, screenSize.width),
+            ],
+          ): Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
@@ -154,7 +160,7 @@ class _AboutWidgetState extends State<AboutWidget> {
                 ),
               ],
             ),
-          ),
+        ),
           const Divider(
             height: 20,
             thickness: 5,
