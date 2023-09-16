@@ -14,14 +14,27 @@ class TimeLineClass{
 
 
 List<TimeLineClass> timeLineList = [
-  TimeLineClass("DataDriven", "Capstone Engineering Project where my teammates and I learned how a product gets developed and the different stages it goes through such as planning, designing, developing, and revision",
+  TimeLineClass("DataDriven", 
+  "Capstone Engineering Project where my teammates and" 
+  " I learned how a product gets developed and the different stages" 
+  " it goes through such as planning, designing, developing, and revision",
   Icons.flutter_dash_sharp,"2022-2023", "Goleta, CA", Uri.parse('https://web.ece.ucsb.edu/~yoga/capstone/static/img/projects/slides/datadriven_pr.pdf')),
+  TimeLineClass("Karl Storz Imaging Inc: VDP Software Intern", 
+  "Worked at Karl Storz Imaging Inc. During my time in the company, worked on debugging their front-end modules," 
+  " learned on demoing examples of how the code work, as well learned basic CyberSecurity workflows.",
+  Icons.work,"2020-2023", "Goleta, CA", Uri.parse('https://www.ucsb.edu/')),
   TimeLineClass("UC Santa Barbara", 
-  "As a graduate of the Class of 2023, I took the time to discover my interest in the engineering field. This is where I stepped upon a Web Development class",
+  "As a graduate of the Class of 2023, I took the time to discover my interest in the engineering field." 
+  " Took many classes such as the fundamentals o electrical engineering, data structures, and computer network."
+  " By my last year of college, I gain an interest of web development and decided to go for it.",
   Icons.school,"2020-2023", "Santa Barbara, CA", Uri.parse('https://www.ucsb.edu/')),
-  TimeLineClass("MatLab Learning Assistant", "Learning assistant for the students who were taking the class at Chabot College",
+  TimeLineClass("Chabot College: MatLab Learning Assistant", 
+  "Learning assistant for the students who were taking the class at Chabot College."
+  " Tutoring this class improved my code analysing skills, as well practice being professional during working hours.",
   Icons.computer,"2020-2020", "Hayward, CA", Uri.parse('https://www.chabotcollege.edu/')),
-  TimeLineClass("Chabot College", "Started my engineering journey in Chabot Community College",
+  TimeLineClass("Chabot College", "Started my engineering journey in Chabot Community College. "
+  "I was part of the Computer Science and Engineering club where students can help each other in their studies,"
+  " as well participated in a robotics competition.",
   Icons.school,"2017-2020", "Hayward, CA", Uri.parse('https://www.chabotcollege.edu/')),
 ];
 
@@ -44,14 +57,14 @@ class TimeLineConnector extends StatelessWidget{
           child: Container(
             height: 70,
             width: 2,
-            color: index == 0 ? Colors.grey[900]:Colors.blue,
+            color: index == 0 ? Colors.grey[900]:Colors.white,
           ),
         ),
         Container(
           margin: const EdgeInsets.only(right: 5, left: 8),
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.purple,
+            color: Colors.deepPurpleAccent,
             borderRadius: BorderRadius.circular(50),
           ),
           child: IconButton(
@@ -67,7 +80,7 @@ class TimeLineConnector extends StatelessWidget{
           child: Container(
             height: 70,
             width: 2,
-            color: index == timeLineList.length -1 ? Colors.grey[900]:Colors.blue,
+            color: index == timeLineList.length -1 ? Colors.grey[900]:Colors.white,
           ),
         ),
       ],
@@ -91,11 +104,11 @@ class TimeLineContainers extends StatelessWidget{
           border: Border(
             right: BorderSide(
               width: 3,
-              color: Colors.red,
+              color: Colors.lightBlue,
             ),
             bottom: BorderSide(
               width: 3,
-              color: Colors.red,
+              color: Colors.lightBlue,
             ),
           ),
           boxShadow: [

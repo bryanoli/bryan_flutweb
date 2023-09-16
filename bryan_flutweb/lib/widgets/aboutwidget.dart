@@ -56,7 +56,7 @@ class _AboutWidgetState extends State<AboutWidget> {
             children: [
               IconButton(
                 onPressed: ()=> launchUrl(uriListSocials.first),
-                hoverColor: Colors.red, 
+                hoverColor: Colors.lightBlue, 
                 icon: const Icon(
                   SimpleIcons.github,
                   color: Colors.purple,
@@ -65,7 +65,7 @@ class _AboutWidgetState extends State<AboutWidget> {
               ),
               IconButton(
                 onPressed: ()=> launchUrl(uriListSocials.elementAt(1)),
-                hoverColor: Colors.red, 
+                hoverColor: Colors.lightBlue, 
                 icon: const Icon(
                   SimpleIcons.linkedin,
                   color: Colors.purple,
@@ -76,10 +76,10 @@ class _AboutWidgetState extends State<AboutWidget> {
           ),
           const SizedBox(height: 20,),
           FloatingActionButton.extended(
-            hoverColor: Colors.purple,
+            hoverColor: Colors.lightBlue,
             onPressed:() => Navigator.pushNamed(context, '/resume'), 
             label: const Text('Resume'),
-            backgroundColor: Colors.pink,
+            backgroundColor: Colors.purple,
           ),
         ],
       ),

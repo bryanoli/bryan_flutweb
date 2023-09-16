@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage>{
     Map<String, double> sectionOffsetsMobile = {
       'Home': 0.0,
       'Projects': MediaQuery.of(context).size.height / 1,
-      'TimeLine': MediaQuery.of(context).size.height * 2 / 1.5,
+      'TimeLine': MediaQuery.of(context).size.height * 2 / 1.3,
     };
     
     

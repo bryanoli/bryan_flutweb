@@ -104,7 +104,7 @@ class _ProjectPageState extends State<ProjectPage> {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.yellowAccent, width: 2),
+          border: Border.all(color: Colors.lightBlue, width: 3),
           borderRadius: BorderRadius.circular(20),
         ),
         child: InkWell(
@@ -132,7 +132,7 @@ class _ProjectPageState extends State<ProjectPage> {
         autoPlay: false,
         enlargeCenterPage: true,
         viewportFraction: 0.4,
-        aspectRatio: 3,
+        aspectRatio: 4,
         initialPage: 2,
       ),
     );
