@@ -2,7 +2,6 @@
 import 'package:bryan_flutweb/widgets/aboutwidget.dart';
 import 'package:bryan_flutweb/widgets/titlewidget.dart';
 import 'package:flutter/material.dart';
-import 'package:bryan_flutweb/widgets/menunav.dart';
 import 'package:bryan_flutweb/projects.dart';
 import 'package:bryan_flutweb/widgets/timelineEvents.dart';
 

@@ -22,10 +22,10 @@ List<TimeLineClass> timeLineList = [
   TimeLineClass("Karl Storz Imaging Inc: VDP Software Intern", 
   "Worked at Karl Storz Imaging Inc. During my time in the company, worked on debugging their front-end modules," 
   " learned on demoing examples of how the code work, as well learned basic CyberSecurity workflows.",
-  Icons.work,"2020-2023", "Goleta, CA", Uri.parse('https://www.ucsb.edu/')),
+  Icons.work,"2020-2023", "Goleta, CA", Uri.parse('https://www.karlstorz.com/ca/en/usa-goleta-imaging.htm')),
   TimeLineClass("UC Santa Barbara", 
   "As a graduate of the Class of 2023, I took the time to discover my interest in the engineering field." 
-  " Took many classes such as the fundamentals o electrical engineering, data structures, and computer network."
+  " Took many classes such as the fundamentals of electrical engineering, data structures, and computer network."
   " By my last year of college, I gain an interest of web development and decided to go for it.",
   Icons.school,"2020-2023", "Santa Barbara, CA", Uri.parse('https://www.ucsb.edu/')),
   TimeLineClass("Chabot College: MatLab Learning Assistant", 
@@ -117,7 +117,7 @@ class TimeLineContainers extends StatelessWidget{
           ],
         ),
         child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

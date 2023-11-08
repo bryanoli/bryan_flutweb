@@ -1,40 +1,34 @@
+import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:bryan_flutweb/widgets/menunav.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
-
-
-class ResumePage extends StatefulWidget {
-  const ResumePage({super.key, required this.title});
-
-  final String title;
-  @override
-  State<ResumePage> createState() => _ResumePageState();
-}
-
-class _ResumePageState extends State<ResumePage> {
+class DownloadResume extends StatelessWidget {
+  const DownloadResume({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
- 
-  return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: ListView(
-          children:[
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset(
-              'assets/images/Bryan_Olivares_Resume_1.jpg',
-              fit: BoxFit.contain,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );  
+    AnchorElement anchorElement() {
+      return AnchorElement();
+    }
+
+    void downloadPdfFromAssets() async {
+      var pdfData = await rootBundle
+          .load('Bryan_Olivares_Resume.pdf');
+      var anchor = anchorElement();
+      var blob = Blob([pdfData], 'application/pdf');
+      anchor.href = Url.createObjectUrl(blob);
+      anchor.download = 'Bryan_Olivares_Resume.pdf';
+      anchor.click();
+    }
+
+    return ElevatedButton(
+        onPressed: () {
+          downloadPdfFromAssets();
+        },
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 15),
+          child: Text("Download My Resume"),
+        ));
   }
 }

@@ -1,10 +1,7 @@
 import 'package:bryan_flutweb/widgets/resume.dart';
 import 'package:flutter/material.dart';
-import 'package:bryan_flutweb/widgets/menunav.dart';
 import 'package:simple_icons/simple_icons.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:bryan_flutweb/widgets/timelineEvents.dart';
 
 class AboutWidget extends StatefulWidget {
   const AboutWidget({super.key});
@@ -56,7 +53,6 @@ class _AboutWidgetState extends State<AboutWidget> {
             children: [
               IconButton(
                 onPressed: ()=> launchUrl(uriListSocials.first),
-                hoverColor: Colors.lightBlue, 
                 icon: const Icon(
                   SimpleIcons.github,
                   color: Colors.purple,
@@ -64,8 +60,7 @@ class _AboutWidgetState extends State<AboutWidget> {
                 ),
               ),
               IconButton(
-                onPressed: ()=> launchUrl(uriListSocials.elementAt(1)),
-                hoverColor: Colors.lightBlue, 
+                onPressed: ()=> launchUrl(uriListSocials.elementAt(1)), 
                 icon: const Icon(
                   SimpleIcons.linkedin,
                   color: Colors.purple,
@@ -75,12 +70,7 @@ class _AboutWidgetState extends State<AboutWidget> {
             ],
           ),
           const SizedBox(height: 20,),
-          FloatingActionButton.extended(
-            hoverColor: Colors.lightBlue,
-            onPressed:() => Navigator.pushNamed(context, '/resume'), 
-            label: const Text('Resume'),
-            backgroundColor: Colors.purple,
-          ),
+          const DownloadResume(),
         ],
       ),
     );
@@ -146,7 +136,7 @@ return SingleChildScrollView(
           child: mobile ? Column(
             children: [
               buildTextIntro(),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               buildTextAbout(screenSize.height, screenSize.width),
             ],
           ): Row(

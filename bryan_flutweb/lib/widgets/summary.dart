@@ -14,7 +14,7 @@ class SummaryWidget extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
